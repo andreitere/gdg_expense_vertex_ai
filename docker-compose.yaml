@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./expense_ai_fe
+      dockerfile: Dockerfile
+  api:
+    build:
+      context: ./expense_ai_be
+      dockerfile: Dockerfile
+    environment:
+      - PG_URI=${PG_URI}
+      - SECRET_KEY=${SECRET_KEY}
+      - REFRESH_SECRET_KEY=${REFRESH_SECRET_KEY}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES}
+      - REFRESH_TOKEN_EXPIRE_MINUTES=${REFRESH_TOKEN_EXPIRE_MINUTES}
+    healthcheck:
+      test: curl --fail http://0.0.0.0:5003/ || exit 1
+      interval: 5s
+      timeout: 30s
+      retries: 5
+      start_period: 5s

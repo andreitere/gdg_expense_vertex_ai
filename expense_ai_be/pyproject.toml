@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "expense-ai-be"
+version = "0.1.0"
+description = ""
+authors = ["Andrei Terecoasa <terecoasa.andrei@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "expense_ai" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+alembic = "^1.13.1"
+doppler-sdk = "^1.2.1"
+fastapi = "^0.105.0"
+google-generativeai = "^0.8.0"
+gunicorn = "^22.0.0"
+httpx = "^0.27.2"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+psycopg = {extras = ["binary"], version = "^3.1.18"}
+psycopg-pool = "^3.2.1"
+psycopg2-binary = "^2.9.9"
+pydantic-settings = "^2.4.0"
+python-dotenv = "^1.0.0"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+python-multipart = "^0.0.9"
+pyyaml = "^6.0.1"
+vertexai = "^1.65.0"
+
+[tool.poetry.group.dev.dependencies]
+uvicorn = { extras = ["standard"], version = "^0.24.0.post1" }
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.3.2"
+testcontainers = {extras = ["postgres"], version = "^4.7.2"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
