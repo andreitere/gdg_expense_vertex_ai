@@ -31,7 +31,7 @@
   },
   "scripts": {
     "dev": "slidev",
-    "build": "slidev build",
+    "build": "slidev build --base /gdg_expense_vertex_ai/",
     "export": "slidev export",
     "release": "release-it",
     "screenshot": "slidev export --format png",
